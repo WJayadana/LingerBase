@@ -14,7 +14,7 @@ const handler = async (m, { Linger, text, isOwn, command, reply }) => {
         case 'setpref': {
             if (!text) return reply('Masukkan prefix baru!')
             // Note: This only changes locally until actual config write logic is added
-            const config = (await import('../../config.js')).default
+            const { config } = (await import('../../config.js')).default
             config.prefa = [text]
             reply(`✅ Prefix berhasil diubah ke: ${text}`)
         }
