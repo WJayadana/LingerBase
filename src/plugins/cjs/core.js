@@ -1,5 +1,5 @@
 const Case = require("../../lib/system.js");
-const config = require("../../config.js");
+const config = require("../../../config.js");
 const util = require("util");
 const { exec } = require("child_process");
 
