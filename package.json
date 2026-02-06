@@ -8,7 +8,7 @@
     "start": "bun index.js"
   },
   "author": "Jayadana",
-  "license": "MIT",
+  "license": "CC-BY-NC-4.0",
   "dependencies": {
     "@adiwajshing/keyed-db": "^0.2.4",
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
