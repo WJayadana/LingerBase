@@ -1,5 +1,5 @@
 const Case = require("../../lib/system.js");
-const config = require("../../../config.js");
+const { config } = require("../../../config.js");
 const util = require("util");
 const { exec } = require("child_process");
 
@@ -65,7 +65,9 @@ const handler = async (m, { Linger, text, args, isOwn, isPrem, command, reply })
 │ ↝ => [eval]
 │ ↝ > [eval]
 │ ↝ $ [exec]
-╰───────────────────`;
+╰───────────────────
+
+*Note:* Use prefix [ ${config.prefa[0] || 'none'} ] before command.`;
 
             Linger.sendMessage(m.chat, {
                 text: teks,
