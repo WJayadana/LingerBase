@@ -8,6 +8,11 @@ const config = {
     version: "1.0"
 };
 
+const init = {
+    session: "./session",
+    customPair: "LINGERMD"
+}
+
 // Auto-reload on file changes
 let file = require.resolve(__filename);
 fs.watchFile(file, () => {
@@ -16,4 +21,8 @@ fs.watchFile(file, () => {
     delete require.cache[file];
 });
 
-module.exports = config;
+module.exports = {
+    config,
+    init
+};
+

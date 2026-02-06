@@ -1,5 +1,6 @@
 console.clear();
-const config = require('./src/config.js');
+const { config, init } = require('./config.js')
+;
 
 const {
     default: makeWASocket,
@@ -47,7 +48,7 @@ function question(query) {
 
 //===================
 async function connectToWhatsApp() {
-    const { state, saveCreds } = await useMultiFileAuthState("./session");
+    const { state, saveCreds } = await useMultiFileAuthState(init.session);
     const Linger = makeWASocket({
         printQRInTerminal: !usePairingCode,
         syncFullHistory: true,
@@ -98,7 +99,7 @@ async function connectToWhatsApp() {
 
         const phoneNumber = await question(chalk.blue(`Enter Your Number\nYour Number: `));
 
-        const code = await Linger.requestPairingCode(phoneNumber, "LINGERMD");
+        const code = await Linger.requestPairingCode(phoneNumber, init.customPair);
         console.log(chalk.green(`\nCode: ${code}`));
     }
 
@@ -124,7 +125,7 @@ async function connectToWhatsApp() {
             if (!Linger.public && !mek.key.fromMe && chatUpdate.type === 'notify') return;
             if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return;
             let m = smsg(Linger, mek, null);
-            
+
             // Loop guard: Skip own messages unless it's a specific owner-only eval command
             if (m.fromMe && !m.body.startsWith('>') && !m.body.startsWith('=>') && !m.body.startsWith('$')) return;
 
@@ -153,7 +154,7 @@ async function connectToWhatsApp() {
         return buffer;
     };
 
-    Linger.downloadAndSaveMediaMessage = (message, filename, attachExtension) => 
+    Linger.downloadAndSaveMediaMessage = (message, filename, attachExtension) =>
         media.downloadAndSaveMediaMessage(message, filename, attachExtension);
 
     // Tambahan fungsi send media

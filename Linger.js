@@ -1,5 +1,6 @@
 console.clear();
-const config = require('./src/config.js');
+const { config, init } = require('./config.js')
+;
 const { description, version, name, main } = require("./package.json")
 const {
     default: baileys,
