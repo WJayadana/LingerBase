@@ -25,7 +25,7 @@ export default async function pluginManager(m, { args, reply, quoted }) {
       if (!newPluginName.endsWith(".mjs")) newPluginName += ".mjs";
       const addPath = path.join(pluginDir, newPluginName);
       if (fs.existsSync(addPath)) return reply("❌ Plugin sudah ada!");
-      fs.writeFileSync(addPath, quoted.text);
+      fs.writeFileSync(addPath, m.quoted.text);
       reply(`✅ Plugin '${newPluginName}' berhasil dibuat!`);
       break;
 
