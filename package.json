@@ -24,6 +24,7 @@
     "moment-timezone": "^0.5.34",
     "node-cache": "^5.1.2",
     "node-webpmux": "^3.2.1",
-    "pino": "^7.0.5"
+    "pino": "^7.0.5",
+    "wa-sticker-formatter": "^1.6.0"
   }
 }

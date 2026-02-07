@@ -19,7 +19,7 @@ export default async function pluginManager(m, { args, reply, quoted }) {
 
     // ================= ADD PLUGIN =================
     case "+":
-      if (!quoted || !quoted.text) return reply("❌ Reply ke pesan yang berisi kode plugin!");
+      if (!m.quoted || !m.quoted.text) return reply("❌ Reply ke pesan yang berisi kode plugin!");
       if (!args[1]) return reply("❌ Harus menyertakan nama file. Contoh: .plugin + hello.mjs");
       let newPluginName = args[1];
       if (!newPluginName.endsWith(".mjs")) newPluginName += ".mjs";
