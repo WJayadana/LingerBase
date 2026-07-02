@@ -1,4 +1,7 @@
-node_modules
-package-lock.json
-*.lock
-session
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.DS_Store

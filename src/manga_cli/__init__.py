@@ -1,0 +1,1 @@
+"""Manga Translator CLI package."""
